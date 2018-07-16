@@ -4,9 +4,14 @@ import * as MdComponents from './components'
 let VueMaterial = Vue => {
   material(Vue)
 
-  Object.values(MdComponents).forEach((MdComponent) => {
+  const values = Object.keys(MdComponents).map(function(key) {
+    return MdComponents[key];
+  });
+  values.forEach((MdComponent) => {
     Vue.use(MdComponent)
   })
+
+
 }
 
 VueMaterial.version = '__VERSION__'

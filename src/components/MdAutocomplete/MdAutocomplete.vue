@@ -170,7 +170,9 @@
       },
       filterByObject () {
         return this.mdOptions.filter(item => {
-          const values = Object.values(item)
+          const values = Object.keys(item).map(function(key) {
+            return item[key];
+          });
           const valuesCount = values.length
 
           for (let i = 0; i <= valuesCount; i++) {
